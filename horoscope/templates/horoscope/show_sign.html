@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block show-sign %}
+<br> <br> <br> <br> <br>
+<div class="container">
+        <div class="card text-center border border-danger">
+          <h4 class="card-header">
+                Ваш знак Зодиака
+          </h4>
+          <div class="card-body">
+            <h2 class="card-title">{{ sign }}</h2>
+            <p class="card-text">Чтобы узнать больше  знаке "{{ sign }}", кликните на кнопку ниже</p>
+            <button class="btn btn-danger btn-lg" type="button"><a class="text-light text-decoration-none my-auto" href="{% url 'sign-detail' slug=button_slug %}"> Узнать больше</a></button>
+          </div>
+        </div>
+</div>
+
+
+
+
+{% endblock %}

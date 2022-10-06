@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block menu %}
+      {% if sign_list %}
+        {% for sign in sign_list %}
+        <a class="nav-link" href="{% url 'sign-detail' slug=sign.slug %}">{{ sign.sign_name }}</a>
+        {% endfor %}
+      {% else %}
+        <p> Знаки в стадии добавления </p>
+      {% endif %}
+{% endblock %}

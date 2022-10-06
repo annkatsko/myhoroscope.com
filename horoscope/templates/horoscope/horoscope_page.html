@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block horoscope %}
+<div class="container mt-5">
+        <div class="card text-center border border-danger">
+          <h2 class="card-header p-4">
+              {{day}}
+          </h2>
+          <div class="card-body">
+            <h4 class="card-text p-4">{{horoscope}}
+</h4>
+          </div>
+        </div>
+</div>
+
+
+{% endblock %}
+
+
+
