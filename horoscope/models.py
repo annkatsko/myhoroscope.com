@@ -3,7 +3,6 @@ from django.db import models
 
 class Sign(models.Model):
     """Class for Zodiac sign models."""
-
     def __str__(self):
         return self.sign_name
 

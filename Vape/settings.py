@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-d9i231jl+h8q40pwo@br+9hp#3w&d8%0a4w*$z0j0%f3*917z&' # --- the one indicated in your settings.py, cut an paste it here
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,9 @@ CACHES = {
         'LOCATION': os.path.join(BASE_DIR, 'horoscope_cache'),
     }
 }
+
+
+DATE_FORMAT = 'j E Y'
+DATE_INPUT_FORMATS = ['%d.%m.%Y']
+TIME_FORMAT = 'H:i'
+DATETIME_INPUT_FORMATS = ['%d.%m.%Y %H:%M']

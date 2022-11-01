@@ -10,3 +10,4 @@ urlpatterns = [
     path('<slug:slug>/', cache_page(60)(views.SignDetailView.as_view()), name='sign-detail'),
     path('<slug:slug>/<day>/', cache_page(60)(views.HoroscopeFormTemplateView.as_view()), name='horoscope')
 ]
+

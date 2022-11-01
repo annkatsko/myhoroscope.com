@@ -66,6 +66,8 @@ class SignListView(generic.ListView):
     template_name = 'horoscope/promo.html'
 
 
+
+
 class SignDetailView(generic.DetailView):
     """Render a "detail" view of Zodiac sign object."""
 
@@ -85,7 +87,7 @@ class SignFormView(generic.FormView):
     """
 
     form_class = SignForm
-    template_name = 'test_app/learn_sign.html'
+    template_name = 'horoscope/learn_sign.html'
     initial = {'birthday_day': '01',
                'birthday_month': '01'}
 
