@@ -11,6 +11,13 @@
             <h2 class="card-title">{{ sign }}</h2>
             <p class="card-text">Чтобы узнать больше  знаке "{{ sign }}", кликните на кнопку ниже</p>
             <button class="btn btn-danger btn-lg" type="button"><a class="text-light text-decoration-none my-auto" href="{% url 'sign-detail' slug=button_slug %}"> Узнать больше</a></button>
+                {% if user.is_authenticated %}
+
+              <button class="learn_sign mt-5">
+                <a  class="earn_sign_link text-light text-decoration-none my-auto" href="{% url 'edit' %}">Подписаться на гороскоп</a>
+             </button>
+                  {% endif %}
+
           </div>
         </div>
 </div>

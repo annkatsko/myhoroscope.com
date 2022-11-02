@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.urls import reverse
 from django.views import generic
 from .models import Sign
 from .horoscope_parcer import parcer
 from .forms import SignForm
+from django.http import Http404, HttpResponseRedirect
 
 
 _days = {'today': 'Сегодня',

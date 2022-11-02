@@ -149,3 +149,6 @@ DATE_FORMAT = 'j E Y'
 DATE_INPUT_FORMATS = ['%d.%m.%Y']
 TIME_FORMAT = 'H:i'
 DATETIME_INPUT_FORMATS = ['%d.%m.%Y %H:%M']
+LOGIN_REDIRECT_URL = '/horoscope'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGOUT_REDIRECT_URL = '/welcome/login'

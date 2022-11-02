@@ -12,6 +12,25 @@
     <button class="learn_sign mt-5">
       <a  class="earn_sign_link text-light text-decoration-none my-auto" href="{% url 'learn-sign' %}">Узнать свой знак зодиака</a>
     </button>
+    {% if user.is_authenticated %}
+    <button class="learn_sign mt-5">
+      <a  class="earn_sign_link text-light text-decoration-none my-auto" href="{% url 'logout' %}">Выйти</a>
+    </button>
+    <button class="learn_sign mt-5">
+      <a  class="earn_sign_link text-light text-decoration-none my-auto" href="{% url 'edit' %}">Редактировать</a>
+    </button>
+
+    {% else %}
+    <button class="learn_sign mt-5">
+      <a  class="earn_sign_link text-light text-decoration-none my-auto" href="{% url 'login' %}">Войти</a>
+    </button>
+    <button class="learn_sign mt-5">
+      <a  class="earn_sign_link text-light text-decoration-none my-auto" href="{% url 'registration' %}">Зарегистрироваться</a>
+    </button>
+    {% endif %}
+{% block content %}
+{% endblock %}
+
 
 {% endblock %}
 
