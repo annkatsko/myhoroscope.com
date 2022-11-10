@@ -1,0 +1,34 @@
+{% extends "registration/base.html" %}
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card mt-5">
+                        <div class="card-header">
+                            <div><a class="navbar-brand" href="{% url 'main-page' %}">Horoscope</a></div>
+                            <div><h1>Регистрация</h1></div>
+                        </div>
+
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ user_form|crispy }}
+                                <button class="btn btn-primary btn-l" type="submit">Зарегистрироваться</button>
+                                <button class="btn btn-secondary btn-l ml-3" type="button"><a class="text-light" href="{% url 'main-page' %}">На главную</a></button>
+                            </form>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock %}

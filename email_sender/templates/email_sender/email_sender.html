@@ -1,0 +1,21 @@
+{% extends 'horoscope/base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+<div class="container">
+    <h2>
+    Введите email друга
+</h2>
+<form method="POST">
+        {% csrf_token %}
+    <table>
+        {{ form.as_p }}
+    </table>
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <button type="submit" value="Send" class="btn btn-outline-primary">Отправить</button>
+
+</form>
+</div>
+
+{% endblock %}

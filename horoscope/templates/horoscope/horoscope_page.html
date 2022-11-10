@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'horoscope/base.html' %}
 
 
-{% block horoscope %}
+{% block content %}
 <div class="container mt-5">
-        <div class="card text-center border border-danger">
+        <div class="card text-center border">
           <h2 class="card-header p-4">
               {{day}}
           </h2>
           <div class="card-body">
-            <h4 class="card-text p-4">{{horoscope}}
-</h4>
+            <h4 class="card-text p-4">{{horoscope}}</h4>
+              <button type="button" class="btn btn-danger btn-lg"  ><a class="text-light text-decoration-none" href="{% url 'send_horoscope' slug=sign day=slug_day%}">Отправить гороскоп на почту другу</a></button>
           </div>
         </div>
 </div>

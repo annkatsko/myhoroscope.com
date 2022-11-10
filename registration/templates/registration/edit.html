@@ -1,15 +1,42 @@
 {% extends "registration/base.html" %}
 
-{% block title %}Edit your account{% endblock %}
 
 {% block content %}
-    <h1>Edit your account</h1>
+{% load crispy_forms_tags %}
 
-    <p>You can edit your account using the following form:</p>
-    <form action="." method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <p><input type="submit" value="Save changes"></p>
-    </form>
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card mt-5">
+                        <div class="card-header">Редактировать аккаунт</div>
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ user_form|crispy }}
+                                {{ profile_form|crispy }}
+                                <button type="submit" class="btn btn-primary mt-2">Сохранить изменения</button>
+                                <button type="button" class="btn btn-secondary mt-2"><a href="{% url 'main-page' %}" class="text-light">Вернуться на главную</a></button>
+
+                            </form>
+                            <p class="mt-5">Не знаете свой знак зодиака?</p>
+                            <button type="button" class="btn btn-warning"><a href="{% url 'learn-sign' %}" class="text-dark"> Узнать </a></button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</main>
 {% endblock %}
+
+
+
+
+
+
+
+

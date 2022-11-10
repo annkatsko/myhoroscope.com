@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib import messages
-
-# Create your views here.
-from .forms import UserRegistrationForm, UserEditForm, ProfileEditForm
+from .forms import UserRegistrationForm, UserEditForm, ProfileEditForm, CustomAuthenticationForm
 from .models import Profile
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 def register(request):
@@ -18,10 +19,10 @@ def register(request):
             # Save the User object
             new_user.save()
             profile = Profile.objects.create(user=new_user)
-            return render(request, 'registration/register_done.html', {'new_user': new_user})
+            return render(request, 'registration/registration_done.html', {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
-    return render(request, 'registration/register.html', {'user_form': user_form})
+    return render(request, 'registration/registration.html', {'user_form': user_form})
 
 
 @login_required
@@ -39,7 +40,16 @@ def edit(request):
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
-    return render(request,
-                      'registration/edit.html',
-                      {'user_form': user_form,
-                       'profile_form': profile_form})
+    return render(request,'registration/edit.html', {'user_form': user_form, 'profile_form': profile_form})
+
+
+class MyLoginView(LoginView):
+    template_name = "registration/login.html"
+    authentication_form = CustomAuthenticationForm
+
+
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'registration/my_password_reset.html'
+    email_template_name = 'registration/my_password_reset_email.html'
+    subject_template_name = 'registration/my_password_reset_subject.txt'
+

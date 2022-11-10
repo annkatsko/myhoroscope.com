@@ -1,0 +1,130 @@
+{% extends 'horoscope/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+ <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/static/img/stars.jpeg'); height: 320px;" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-3 bread">Ваш гороскоп на каждый день</h1>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+        </div>
+        <h2 class="text-light">Узнай будущее</h2>
+        <p>Получи гороскоп своего знака зодиака на будущий день или месяц.</p>
+
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
+        </div>
+        <h2 class="text-light">Поделись гороскопом</h2>
+        <p>Отправь гороскоп своему другу на электронную почту.</p>
+
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+        </div>
+        <h2 class="text-light">Веди дневник</h2>
+        <p>Записывай свои мысли и эмоции в свой личный дневник.</p>
+
+      </div>
+
+    </div>
+              <button type="button" class="btn btn-primary btn-lg"><a href="{% url 'learn-horoscope'%}" class='text-light'>Получить гороскоп</a></button>
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ftco-animate">
+            <h2 class="mb-3">Что такое гороскоп?</h2>
+            <p>Гороскоп – вещь довольно полезная и нужная и чтобы ни говорили скептики, гороскопы уже многим людям помогли. Сами по себе гороскопы являются сугубо индивидуальной вещью и процесс составления гороскопа не такая простая вещь, как может показаться на первый взгляд. Чтобы составить более точный гороскоп, необходимо знать местоположение планет, углы, звёзды и так далее. Без этих компонентов гороскоп, так сказать, уже и не гороскоп.
+
+            <p>
+              <img src="{% static 'images/image_3.jpg' %}" alt="" class="img-fluid">
+            </p>
+            <p>Гороскоп – слово, опять-таки, греческого происхождения. Дословный перевод – наблюдение за промежутками времени. В обычном понимании, гороскоп – это некая схема, которая даёт понять, как располагаются планеты и звёзды в тот или иной промежуток времени. Раньше гороскопом именовали ни что иное, как Асцедент или восходящий знак. Теперь же гороскоп – это вовсе не восходящий знак, а знак, где расположено Солнце. Помимо этого, гороскопом называют астрологические прогнозы.</p>
+</p>
+            <h2 class="mb-3 mt-5">Что такое знак Зодиака?</h2>
+            <p>
+              <img src="{% static 'images/image_2.jpg' %}" alt="" class="img-fluid">
+            </p>
+            <p>Первое деление неба на 12 частей появилось на территории современного Ирана — Вавилона — Шумерской цивилизацией. </p>
+            <p>Издревле разные племена говорили о том, что знаки зодиака появились от богов. </p>
+            <p>Шумеры же были уверены, что знаки зодиака — это боги, пришедшие с Млечного пути. </p>
+            <p>Древние жители обратили внимание на то, что каждый месяц на востоке виднеются одни и те же знаки.
+
+              Разделение приняли всемирно, несмотря на то, что через эклиптику (большой круг: годичное движение Солнца) проходит 13 созвездий. Мало кто знает о существовании змееносца, потому что его выкинули из-за несчастного числа 13.</p>
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">Life</a>
+                <a href="#" class="tag-cloud-link">Sport</a>
+                <a href="#" class="tag-cloud-link">Tech</a>
+                <a href="#" class="tag-cloud-link">Travel</a>
+              </div>
+            </div>
+
+            <div class="about-author d-flex p-4 bg-light">
+              <div class="bio mr-5">
+                <img src="{% static 'img/krug.webp' %}" alt="Image placeholder" class="img-fluid mb-4">
+              </div>
+              <div class="desc">
+                <h3>Интересный факт</h3>
+                <p>Согласно статистике, 75% людей, которые регулярно читают гороскопы, составляют женщины.</p>
+              </div>
+            </div>
+
+
+              <!-- END comment-list -->
+
+              <div class="comment-form-wrap pt-5">
+                  <button type="button" class="btn btn-primary btn-lg">
+                      <a  class="earn_sign_link text-light text-decoration-none my-auto" href="{% url 'learn-sign' %}">Узнать свой знак зодиака</a>
+                      </button>
+
+
+
+              </div>
+            </div>
+
+          </div> <!-- .col-md-8 -->
+
+
+
+
+            <div class="sidebar-box ftco-animate">
+              <h3 class="heading-sidebar mt-5">Также по теме</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">Нумерология</a>
+                <a href="#" class="tag-cloud-link">Карты Таро</a>
+                <a href="#" class="tag-cloud-link">Гадание</a>
+                <a href="#" class="tag-cloud-link">Предсказания</a>
+              </div>
+            </div>
+            <div class=" d-flex p-4 bg-light">
+              <div class="sidebar-box ftco-animate">
+              <h3 class="heading-sidebar">Гороскопы - это пожелания на день</h3>
+              <p>Создавайте свою судьбу сами, не верьте случайным фразам.</p>
+            </div>
+
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+{% endblock %}
+

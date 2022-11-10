@@ -1,0 +1,23 @@
+{% extends 'diary/base.html' %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="card mt-3">
+      <h5 class="card-header">{{ note.date_posted|date:"F d, Y" }}</h5>
+  <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'note-detail' note.id %}">{{ note.title }}</a></h5>
+    <p class="card-text">{{ note.content}}</p>
+    <a href="{% url 'note-update' note.id %}" class="btn btn-primary">Редактировать</a>
+      <a href="{% url 'notes-home' %}" class="btn btn-secondary">Вернуться к списку</a>
+      <a href="{% url 'note-delete' note.id %}" class="btn btn-secondary">Удалить</a>
+  </div>
+</div>
+
+</div>
+
+
+
+
+{% endblock %}

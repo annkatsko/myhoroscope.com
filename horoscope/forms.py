@@ -22,3 +22,28 @@ class SignForm(forms.Form):
                                        error_messages={'choices': 'Выберите правильный месяц.'})
 
 
+class HoroscopeForm(forms.Form):
+    SIGNS = (
+        ('aries', 'Овен'),
+        ('taurus', 'Телец'),
+        ('gemini', 'Близнецы'),
+        ('cancer', 'Рак'),
+        ('leo', 'Лев'),
+        ('virgo', 'Дева'),
+        ('libra', 'Весы'),
+        ('scorpio', 'Скорпион'),
+        ('sagittarius', 'Стрелец'),
+        ('capricorn', 'Козерог'),
+        ('aquarius', 'Водолей'),
+        ('pisces', 'Рыбы'),
+    )
+
+    DAYS = (
+        ('yesterday', 'Вчера'),
+        ('today', 'Сегодня'),
+        ('tomorrow', 'Завтра'),
+        ('month', 'Месяц'),
+    )
+
+    zodiac_sign = forms.ChoiceField(label='Знак зодиака', required=True, choices=SIGNS)
+    day = forms.ChoiceField(label='Период', required=True, choices=DAYS)

@@ -1,0 +1,12 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <p class="mt-5">Вы уверены что хотите удалить запись "{{ sign.title }}"от {{ sign.date_posted }}?</p>
+    {{ form }}
+    <input type="submit" value="   Да   " class="btn btn-primary">
+      <a href="{% url 'notes-home' %}" class="btn btn-secondary">Вернуться к списку</a>
+
+</form>
+
+{% endblock %}

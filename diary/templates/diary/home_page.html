@@ -1,0 +1,30 @@
+{% extends 'diary/base.html' %}
+
+
+
+{% block content %}
+<div class="container text-center mt-3 mb-5">
+    <h2>Добро подаловать в свой личный дневник.
+        <br>
+        Ты можешь излить душу и поделиться самым сокровенным здесь.</h2>
+</div>
+<div class="d-grid gap-2 col-6 mx-auto mt-3 mb-5">
+    <a href="{% url 'note-create' %}" class="btn btn-primary">Создать запись</a>
+</div>
+
+<div class="container">
+      {% for note in notes %}
+<div class="card mb-5">
+      <h5 class="card-header">{{ note.date_posted|date:"F d, Y" }}</h5>
+  <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'note-detail' note.id %}">{{ note.title }}</a></h5>
+    <p class="card-text">{{ note.content|truncatechars:100 }}</p>
+    <a href="{% url 'note-detail' note.id %}" class="btn btn-outline-primary">Перейти к записи</a>
+  </div>
+</div>
+    {% endfor %}</div>
+
+
+
+
+{% endblock %}

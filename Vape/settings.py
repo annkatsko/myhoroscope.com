@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'send_email.apps.SendEmailConfig',
     'horoscope.apps.TestAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'registration',
+    'email_sender',
+    'diary',
+
 ]
 
 MIDDLEWARE = [
@@ -109,8 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -149,6 +152,28 @@ DATE_FORMAT = 'j E Y'
 DATE_INPUT_FORMATS = ['%d.%m.%Y']
 TIME_FORMAT = 'H:i'
 DATETIME_INPUT_FORMATS = ['%d.%m.%Y %H:%M']
-LOGIN_REDIRECT_URL = '/horoscope'
+LOGIN_REDIRECT_URL = '/horoscope/homepage/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGOUT_REDIRECT_URL = '/welcome/login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '1187484@gmail.com'
+EMAIL_HOST_PASSWORD = 'lpitmlecbgrhzmre'
+DEFAULT_FROM_EMAIL = '1187484@gmail.com'
+DEFAULT_TO_EMAIL = '1187191@gmail.com'
+
+
+import os
+from django.contrib.messages import constants as messages
+
+
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+ }

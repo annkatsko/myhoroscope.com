@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('horoscope/', include('horoscope.urls')),
     path('welcome/', include('registration.urls')),
+    path('subscription/', include('email_sender.urls')),
+    path('diary/', include('diary.urls'))
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

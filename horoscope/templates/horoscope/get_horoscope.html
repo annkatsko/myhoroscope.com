@@ -1,0 +1,19 @@
+{% extends 'horoscope/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<main class="form-signin w-25 h-100 m-auto text-center">
+    <div>
+        <h2>
+            Узнайте свою судьбу
+        </h2>
+    </div>
+  <form action="">
+        {{ form|crispy }}
+      <button  type="submit" class="btn btn-primary btn-lg">Узнать</button>
+  </form>
+</main>
+
+
+{% endblock %}

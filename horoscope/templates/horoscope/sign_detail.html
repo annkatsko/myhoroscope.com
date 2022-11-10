@@ -1,30 +1,27 @@
-{% extends 'base.html' %}
+{% extends 'horoscope/base.html' %}
 
-{% block sign_detail %}
+{% block content %}
     <div class="container">
-        <div class="card mb-3 mt-5 border border-danger">
-             <img src="{{ sign.sign_image.url }}" class="sign_img card-img-top" alt="sign_img">
+        <div class="card mb-3 mt-5 border">
+             <img src="{{ sign.sign_image.url }}" class="sign_img card-img-top mx-auto" alt="sign_img" style="height: 500px; width: 500px;">
             <div class="card-body">
                 <h1 class="card-title">{{ sign.sign_name }}</h1>
                 <h3>{{ sign.sign_info | capfirst }}</h3>
             </div>
         </div>
-        <div class="daily_horoscope_title text-center m-auto mt-5 mb-5 border border-danger rounded-pill fs-1 text text-light fw-bold pt-3 pb-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-            </svg>
-                Получите гороскоп для своего знака
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-            </svg>
-        </div>
-          <div class="container position-relative">
-              <div class="position-absolute top-50 start-50 translate-middle mt-5" role="group">
-                    <button type="button" class="btn btn-danger btn-lg"  style="width: 130px;"><a class="text-light text-decoration-none" href="{% url 'horoscope' slug=sign.slug day='yesterday'%}">Вчера</a></button>
-                    <button type="button" class="btn btn-danger btn-lg" style="width: 130px;"><a class="text-light text-decoration-none" href="{% url 'horoscope' slug=sign.slug day='today'%}">Сегодня</a></button>
-                    <button type="button" class="btn btn-danger btn-lg" style="width: 130px;"><a class="text-light text-decoration-none" href="{% url 'horoscope' slug=sign.slug day='tomorrow'%}">Завтра</a></button>
-                    <button type="button" class="btn btn-danger btn-lg" style="width: 130px;"><a class="text-light text-decoration-none" href="{% url 'horoscope' slug=sign.slug day='month'%}">Месяц</a></button>
-              </div>
+        <div class="container position-relative">
+        <h2>Узнайте свой гороскоп</h2>
+
+      <button type="button" class="btn btn-success"><a class="text-light text-decoration-none mb-5" href="{% url 'horoscope' slug=sign.slug day='yesterday'%}">На вчера</a></button>
+
+<!-- Контекстную кнопку на информационные сообщения -->
+        <button type="button" class="btn btn-info"><a class="text-light text-decoration-none mb-5" href="{% url 'horoscope' slug=sign.slug day='tomorrow'%}">На завтра</a></button>
+
+<!-- Указывает, следует проявлять осторожность с этим действием -->
+        <button type="button" class="btn btn-warning"><a class="text-light text-decoration-none mb-5" href="{% url 'horoscope' slug=sign.slug day='today'%}">На сегодня</a></button>
+        <button type="button" class="btn btn-primary"><a class="text-light text-decoration-none mb-5" href="{% url 'horoscope' slug=sign.slug day='month'%}">На месяц</a></button>
+
+
           </div>
     </div>
 {% endblock %}

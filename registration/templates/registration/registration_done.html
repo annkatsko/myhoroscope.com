@@ -1,0 +1,16 @@
+{% extends "registration/base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Ура! <br>
+        Вы зарегистрировались!</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4 mt-4">Кликните по кнопке ниже, чтобы войти в свой Аккаунт</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-primary btn-lg px-4 gap-3"><a href="{% url 'login' %}" class="text-white">Войти</a></button>
+      </div>
+    </div>
+  </div>
+{% endblock %}
