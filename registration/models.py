@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from Vape.choices import SIGNS
+from configs.choices import SIGNS
 
 
 class Profile(models.Model):

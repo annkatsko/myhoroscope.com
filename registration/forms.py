@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django import forms
 from django.core.exceptions import ValidationError
-from Vape import settings
+from configs import settings
 from registration.models import Profile
 from django.contrib.auth.forms import AuthenticationForm
 import re

@@ -1,4 +1,4 @@
-from Vape.constants import days, signs_slugs, zodiac_signs_list
+from configs.constants import days, signs_slugs, zodiac_signs_list
 from django.shortcuts import render
 from django.views import generic
 from .models import Sign
