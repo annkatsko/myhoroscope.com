@@ -34,7 +34,7 @@ environ.Env.read_env()
 # SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['frozen-headland-73870.herokuapp.com','127.0.0.1']
 
