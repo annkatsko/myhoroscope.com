@@ -9,7 +9,7 @@ urlpatterns = [
     path('', cache_page(60)(views.SignsListView.as_view()), name='main-page'),
     path('sign/', cache_page(60)(views.SignViewToUser.as_view()), name='your-sign'),
     path('<slug:slug>/', cache_page(60)(views.SignDetailView.as_view()), name='sign-detail'),
-    path('<slug:slug>/<day>/', cache_page(60)(views.HoroscopeTemplateView.as_view()), name='horoscope'),
+    path('horoscope/<slug:slug>/<day>/', cache_page(60)(views.HoroscopeTemplateView.as_view()), name='horoscope'),
 
 ]
 
