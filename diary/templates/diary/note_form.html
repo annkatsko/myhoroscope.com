@@ -12,7 +12,6 @@
             {{ form|crispy }}
             {% csrf_token %}
        <input type="hidden" name="next" value="{{ request.path }}">
-        <button type="submit" class="btn btn-outline-primary mt-3">Добавить</button>
         </form>
 
     </div>
