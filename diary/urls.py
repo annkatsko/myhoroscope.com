@@ -9,7 +9,7 @@ from .views import (
 
 
 urlpatterns = [
-    path('', UserPostsListView.as_view(), name='notes-home'),
+    path('/', UserPostsListView.as_view(), name='notes-home'),
     path('note/<int:pk>/', PostDetailView.as_view(), name='note-detail'),
     path('note/new/', PostCreateView.as_view(), name='note-create'),
     path('note/<int:pk>/update/', PostUpdateView.as_view(), name='note-update'),
