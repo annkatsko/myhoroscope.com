@@ -170,7 +170,7 @@ DATETIME_INPUT_FORMATS = ['%d.%m.%Y %H:%M']
 
 # Success login/logout urls
 
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGOUT_REDIRECT_URL = '/welcome/login'
 
