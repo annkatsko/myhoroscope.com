@@ -42,7 +42,6 @@ ALLOWED_HOSTS = ['frozen-headland-73870.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
     'horoscope',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -142,6 +141,9 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
 ]
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'horoscope/media/')
 
@@ -192,7 +194,6 @@ MESSAGE_TAGS = {
  }
 
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 import django_heroku
 django_heroku.settings(locals())
