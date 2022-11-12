@@ -35,7 +35,7 @@ class PostDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Note
     fields = ['title', 'content']
-    success_url = 'dairy/'
+
 
     def form_valid(self, form):
         form.instance.author = self.request.user
