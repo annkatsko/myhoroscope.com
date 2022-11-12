@@ -2,9 +2,6 @@
 
 {% block content %}
     <div class="container">
-        <div class="card mb-3 mt-5 border">
-             <img src="{{ sign.sign_image.url }}" class="sign_img card-img-top mx-auto" alt="sign_img" style="height: 500px; width: 500px;">
-            <div class="card-body">
                 <h1 class="card-title">{{ sign.sign_name }}</h1>
                 <h3>{{ sign.sign_info | capfirst }}</h3>
             </div>

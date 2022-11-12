@@ -42,9 +42,6 @@ ALLOWED_HOSTS = ['frozen-headland-73870.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'cloudinary_storage',
-    'django.contrib.staticfiles',
-    'cloudinary',
     'horoscope',
     'django.contrib.admin',
     'django.contrib.auth',
