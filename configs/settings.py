@@ -176,14 +176,14 @@ LOGOUT_REDIRECT_URL = '/welcome/login'
 
 # Email configurations
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-# DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
-# DEFAULT_TO_EMAIL = env('DEFAULT_TO_EMAIL')
+# EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS=True
+# EMAIL_HOST='smtp.gmail.com'
+# EMAIL_PORT=587
+# EMAIL_HOST_USER=env('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD=env('EMAIL_HOST_PASSWORD')
+# DEFAULT_FROM_EMAIL=env('DEFAULT_FROM_EMAIL')
+# DEFAULT_TO_EMAIL=env('DEFAULT_TO_EMAIL')
 
 
 MESSAGE_TAGS = {
