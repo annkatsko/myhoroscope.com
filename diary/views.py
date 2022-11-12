@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
     DetailView,
@@ -34,7 +35,7 @@ class PostDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Note
     fields = ['title', 'content']
-    success_url = '/diary/'
+
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -43,6 +44,9 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         else:
             messages.error(self.request, message="Не удалось создать запись.")
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('notes-home')
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
