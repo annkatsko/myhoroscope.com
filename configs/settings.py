@@ -13,7 +13,7 @@ import os
 import environ
 from pathlib import Path
 from django.contrib.messages import constants as messages
-
+import django_heroku
 
 
 
@@ -42,6 +42,9 @@ ALLOWED_HOSTS = ['frozen-headland-73870.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
     'horoscope',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,6 +137,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dj1wsot2j',
+    'API_KEY': '745915513989612',
+    'API_SECRET': 'pUWK7ru8CA1a7VQ6MFIqC8brKMA'
+}
+
+
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
@@ -141,7 +156,6 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'
@@ -195,5 +209,4 @@ MESSAGE_TAGS = {
 
 
 
-import django_heroku
 django_heroku.settings(locals())
