@@ -137,16 +137,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dj1wsot2j',
-    'API_KEY': '745915513989612',
-    'API_SECRET': 'pUWK7ru8CA1a7VQ6MFIqC8brKMA'
-}
 
 
 STATIC_URL = 'static/'
