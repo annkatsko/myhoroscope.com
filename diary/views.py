@@ -35,7 +35,7 @@ class PostDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Note
     fields = ['title', 'content']
-
+    success_url = '/'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -45,8 +45,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
             messages.error(self.request, message="Не удалось создать запись.")
         return super().form_valid(form)
 
-    def get_success_url(self):
-        return reverse_lazy('notes-home')
+
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
