@@ -65,7 +65,7 @@ def learn_user_sign(request):
     else:
         form = SignForm(initial = {'birthday_day': '01',
                'birthday_month': '01'})
-        context = { 'form': form}
+        context = { 'form': form, 'sign_list': Sign.objects.all()}
         return render(request, 'horoscope/learn_sign.html', context)
 
 
