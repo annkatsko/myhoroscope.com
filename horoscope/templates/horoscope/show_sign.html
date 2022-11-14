@@ -14,16 +14,17 @@
     <div class="row align-items-md-stretch">
       <div class="col-md-6">
         <div class="h-100 p-5 text-white bg-dark rounded-3">
-          <h2>Change the background</h2>
-          <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
-          <button class="btn btn-outline-light" type="button">Example button</button>
+          <h2 class="text-light">Узнать гороскоп</h2>
+          <p>Узнайте гороскоп для разных знаков зодиака.</p>
+          <button type="button" class="btn btn-outline-light"><a href="{% url 'learn-horoscope'%}" class='text-light'>Получить гороскоп</a></button>
         </div>
       </div>
       <div class="col-md-6">
         <div class="h-100 p-5 bg-light border rounded-3">
-          <h2>Add borders</h2>
-          <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-          <button class="btn btn-outline-secondary" type="button">Example button</button>
+          <h2>Напишите дневнику</h2>
+          <p>В начале дня вы можете узнвть что вас ждет, а в конце дня подвести итоги и записать все, что с вами приключилось в течении дня.
+          Ведения дневника позволяет лучше познавать себя и свои эмоции, быть осозненнее.</p>
+          <button class="btn btn-outline-secondary" type="button"><a href="{% url 'notes-home'%}">Вести дневник</a></button>
         </div>
       </div>
     </div>

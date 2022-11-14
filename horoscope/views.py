@@ -1,3 +1,6 @@
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 from configs.constants import days, signs_slugs, zodiac_signs_list
 from django.shortcuts import render
 from django.views import generic
@@ -25,17 +28,7 @@ def _define_sign(day: int, month: int) -> str:
     return sign
 
 
-class SignViewToUser(generic.TemplateView):
-    """Render a template of user's Zodiac sign after submitting SignForm."""
 
-    def get(self, request, *args, **kwargs):
-        """Return rendered template of user's Zodiac sign with context."""
-        day = int(request.GET['birthday_day'])
-        month = int(request.GET['birthday_month'])
-        sign = _define_sign(day, month)
-        context = {'button_slug': signs_slugs[sign],
-                   'sign_list': Sign.objects.all(), 'sign': sign}
-        return render(request, "horoscope/show_sign.html", context=context)
 
 
 class SignsListView(generic.ListView):
@@ -57,22 +50,26 @@ class SignDetailView(generic.DetailView):
         return context
 
 
-class SignFormView(generic.FormView):
-    """
-    A view for displaying a form for learning Zodiac sign
-    and rendering a template response.
-    """
+def learn_user_sign(request):
+    if request.method == "POST":
+        form = SignForm(request.POST)
 
-    form_class = SignForm
-    template_name = 'horoscope/learn_sign.html'
-    initial = {'birthday_day': '01',
-               'birthday_month': '01'}
+        if form.is_valid():
+            day = int(form.cleaned_data['birthday_day'])
+            month = int(form.cleaned_data['birthday_month'])
+            sign = _define_sign(day, month)
+            context = {'button_slug': signs_slugs[sign],
+                       'sign_list': Sign.objects.all(), 'sign': sign}
+            return render(request, "horoscope/show_sign.html", context=context)
 
-    def get_context_data(self, **kwargs):
-        """Add list of signs to context."""
-        context = super().get_context_data(**kwargs)
-        context['sign_list'] = Sign.objects.all()
-        return context
+    else:
+        form = SignForm(initial = {'birthday_day': '01',
+               'birthday_month': '01'})
+        context = { 'form': form}
+        return render(request, 'horoscope/learn_sign.html', context)
+
+
+
 
 
 class HoroscopeTemplateView(generic.TemplateView):

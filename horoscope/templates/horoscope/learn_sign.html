@@ -3,7 +3,8 @@
 {% block content %}
 
 <main class="form-signin w-25 h-100 m-auto text-center">
-  <form action="/horoscope/sign/">
+  <form action="/learn_sign/" method="post">
+      {% csrf_token %}
   {% for field in form %}
         <div class="fieldWrapper">
             {{ field.errors }}
