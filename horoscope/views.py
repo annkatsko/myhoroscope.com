@@ -35,7 +35,6 @@ def _define_sign(day: int, month: int) -> str:
 
 class SignsListView(generic.ListView):
     """Render list of Zodiac sign objects."""
-    request_finished.connect(write_horoscope_to_database)
     model = Sign
     template_name = 'horoscope/home_page.html'
 
