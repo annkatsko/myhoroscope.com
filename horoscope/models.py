@@ -11,4 +11,5 @@ class Sign(models.Model):
                                  max_length=500)
     sign_image = models.ImageField(upload_to='sign_images', default='sign_images/libra.jpg')
     slug = models.SlugField(null=True)
-
+    sign_horoscope_today = models.TextField('Гороскоп на сегодня', help_text='Это поле для гороскопа',
+                                 max_length=10000, default='Гороскоп еще не загрузился', blank=True, null=True)

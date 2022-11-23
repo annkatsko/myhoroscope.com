@@ -4,11 +4,13 @@ from django.urls import reverse
 from configs.constants import days, signs_slugs, zodiac_signs_list
 from django.shortcuts import render
 from django.views import generic
+
+from .call_backs_functions import write_horoscope_to_database
 from .models import Sign
 from .horoscope_parcer import parcer
 from .forms import SignForm, HoroscopeForm
 from django.shortcuts import redirect
-
+from django.core.signals import request_finished
 
 def _define_sign(day: int, month: int) -> str:
     """
@@ -33,7 +35,7 @@ def _define_sign(day: int, month: int) -> str:
 
 class SignsListView(generic.ListView):
     """Render list of Zodiac sign objects."""
-
+    request_finished.connect(write_horoscope_to_database)
     model = Sign
     template_name = 'horoscope/home_page.html'
 
