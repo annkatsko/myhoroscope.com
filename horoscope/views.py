@@ -1,18 +1,17 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+import configs.constants
 from configs.constants import days, signs_slugs, zodiac_signs_list
 from django.shortcuts import render
 from django.views import generic
-
-from .call_backs_functions import write_horoscope_to_database
-from .models import Sign
-from .horoscope_parcer import parcer
-from .forms import SignForm, HoroscopeForm
+from models import Sign
+from horoscope_parcer import parcer
+from forms import SignForm, HoroscopeForm
 from django.shortcuts import redirect
-from django.core.signals import request_finished
 
-def _define_sign(day: int, month: int) -> str:
+
+def define_sign(day: int, month: int) -> str:
     """
     Return the Zodiac sign according to day and month.
 
@@ -24,13 +23,10 @@ def _define_sign(day: int, month: int) -> str:
     days_variants = (20, 19, 21, 20, 21, 22, 23, 23, 23, 24, 23, 22)
     month -= 1
     if day > days_variants[month]:
-        sign = zodiac_signs_list[month]
+        sign = configs.zodiac_signs_list[month]
     else:
         sign = zodiac_signs_list[month - 1]
     return sign
-
-
-
 
 
 class SignsListView(generic.ListView):
@@ -58,7 +54,7 @@ def learn_user_sign(request):
         if form.is_valid():
             day = int(form.cleaned_data['birthday_day'])
             month = int(form.cleaned_data['birthday_month'])
-            sign = _define_sign(day, month)
+            sign = define_sign(day, month)
             context = {'button_slug': signs_slugs[sign],
                        'sign_list': Sign.objects.all(), 'sign': sign}
             return render(request, "horoscope/show_sign.html", context=context)

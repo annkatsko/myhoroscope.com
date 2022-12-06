@@ -1,8 +1,7 @@
-from django.template.loader import render_to_string
 from django.test import TestCase, SimpleTestCase
 from .models import Sign
-from .forms import SignForm
 from django import forms
+
 
 
 class SignModelTest(TestCase):
@@ -39,3 +38,6 @@ class SignModelTest(TestCase):
 class SignFormTest(SimpleTestCase):
     def test_sign_form(self):
         self.assertFieldOutput(forms.IntegerField, {'1': 1}, {'aaa': ['Enter a whole number.']}, empty_value=None)
+
+
+
