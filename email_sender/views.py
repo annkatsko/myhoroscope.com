@@ -35,7 +35,7 @@ class SignFormView(generic.FormView):
                 send_mail(from_email='horoscope@gmail.com', subject=f'Твой гороскоп на {days[day]}',
                           recipient_list=[email],
                           message=today_horoscope)
-                messages.success(request, message=f'Гороскоп отправлена на почту {email}.')
+                messages.success(request, message=f'Гороскоп отправлен на почту {email}.')
 
             except:
                 messages.error(request, message="Не удалось отправить гороскоп.")
