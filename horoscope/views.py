@@ -5,9 +5,9 @@ import configs.constants
 from configs.constants import days, signs_slugs, zodiac_signs_list
 from django.shortcuts import render
 from django.views import generic
-from models import Sign
-from horoscope_parcer import parcer
-from forms import SignForm, HoroscopeForm
+from horoscope.models import Sign
+from horoscope.horoscope_parcer import parcer
+from horoscope.forms import SignForm, HoroscopeForm
 from django.shortcuts import redirect
 
 

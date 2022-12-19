@@ -1,6 +1,17 @@
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "configs.settings")
+
+import django
+django.setup()
+
+from django.core.management import call_command
+
 from django.test import TestCase, SimpleTestCase
-from .models import Sign
+
+from horoscope.models import Sign
 from django import forms
+import unittest
+from horoscope.views import define_sign
 
 
 
@@ -41,3 +52,9 @@ class SignFormTest(SimpleTestCase):
 
 
 
+
+class HoroscopeTestCase(unittest.TestCase):
+    def test_define_sign(self):
+        sign = define_sign(19, 10)
+        self.assertEqual('Весы', sign)
+        self.assertIsInstance(sign, str)
